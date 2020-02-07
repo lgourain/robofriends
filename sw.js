@@ -29,4 +29,4 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/https:\/\/robohash.org\//, new workbox.strategies.StaleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/https:\/\/jsonplaceholder.typicode.com\/users/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
