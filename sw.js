@@ -1,33 +1,25 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
-
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-importScripts(
-  "/robofriends/precache-manifest.d3742d7890741baf97538f2981b92f0c.js"
-);
+importScripts("/robofriends/precache-manifest.98ef027a4ae875b7eabd6effa7b0642f.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
-
 workbox.core.clientsClaim();
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+workbox.routing.registerRoute(
+  new RegExp('https://robohash.org/'),
+  new workbox.strategies.CacheFirst()
+);
 
-workbox.routing.registerRoute(/https:\/\/robohash.org\//, new workbox.strategies.CacheFirst({ "cacheName":"robots-images", plugins: [] }), 'GET');
-workbox.routing.registerRoute(/https:\/\/jsonplaceholder.typicode.com\/users/, new workbox.strategies.CacheFirst({ "cacheName":"robots-informations", plugins: [] }), 'GET');
+workbox.routing.registerRoute(
+  new RegExp('https://jsonplaceholder.typicode.com/users'),
+  new workbox.strategies.CacheFirst()
+);
+
+self.addEventListener('push', (event) => {
+  const title = 'Get Started With Workbox';
+  const options = {
+    body: event.data.text()
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
+workbox.precaching.precacheAndRoute(self.__precacheManifest);
+
