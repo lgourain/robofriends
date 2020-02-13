@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.4a69c8b3012e8d59c0477bc2fe66b07b.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.6b4ca15b08f7384be6b54b3cbbca5f32.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
@@ -14,7 +14,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkFirst()
 );
 
-/* PUSH NOTIFICATIONS */
+/* HANDLE PUSH NOTIFICATIONS */
 self.addEventListener('push', (event) => {
   const title = 'Get Started With Workbox';
   const options = {
