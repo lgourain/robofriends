@@ -3,6 +3,7 @@ importScripts("/robofriends/precache-manifest.c7562c74c4e6678960062320cf806d47.j
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
+/* OFFLINE FETCH */
 workbox.routing.registerRoute(
   new RegExp('https://robohash.org/'),
   new workbox.strategies.NetworkFirst()
@@ -13,6 +14,7 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkFirst()
 );
 
+/* PUSH NOTIFICATIONS */
 self.addEventListener('push', (event) => {
   const title = 'Get Started With Workbox';
   const options = {
@@ -21,5 +23,27 @@ self.addEventListener('push', (event) => {
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
+self.addEventListener('notificationclose', function(e) {
+  var notification = e.notification;
+  var primaryKey = notification.data.primaryKey;
+
+  console.log('Closed notification: ' + primaryKey);
+});
+
+self.addEventListener('notificationclick', function(e) {
+  var notification = e.notification;
+  var primaryKey = notification.data.primaryKey;
+  var action = e.action;
+
+  if (action === 'close') {
+    notification.close();
+  } else {
+    clients.openWindow('http://www.example.com');
+    notification.close();
+  }
+});
+
+/* ASSETS CACHE */
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
+
 
