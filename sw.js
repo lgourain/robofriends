@@ -5,12 +5,12 @@ workbox.core.clientsClaim();
 
 workbox.routing.registerRoute(
   new RegExp('https://robohash.org/'),
-  new workbox.strategies.CacheFirst()
+  new workbox.strategies.NetworkFirst()
 );
 
 workbox.routing.registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/users'),
-  new workbox.strategies.CacheFirst()
+  new workbox.strategies.NetworkFirst()
 );
 
 self.addEventListener('push', (event) => {
