@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.08d2c37c822bccabd552b847221532e3.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.7a3a5fe9ff247a752a72cbaf574ef145.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
