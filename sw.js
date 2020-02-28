@@ -1,20 +1,20 @@
-importScripts("/robofriends/precache-manifest.9bf5bb5f91daa63c3eef5303a3afb661.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.3d547268e5b1ab92df26864dd928afd5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 console.log('workbox', workbox);
-console.log('workbox routing', workbox.routing);
-console.log('workbox strategies', workbox.strategies);
+console.log('workbox background sync', workbox.backgroundSync);
+
 
 /* BACKGROUND SYNC */
 const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
   maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
 });
 
-registerRoute(
+workbox.routing.registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/posts'),
-  new NetworkOnly({
+  new workbox.strategies.NetworkOnly({
     plugins: [bgSyncPlugin]
   }),
   'POST'
@@ -33,14 +33,14 @@ self.addEventListener('fetch', (event) => {
 });
 
 /* OFFLINE FETCH */
-registerRoute(
+workbox.routing.registerRoute(
   new RegExp('https://robohash.org/'),
-  new NetworkFirst()
+  new workbox.strategies.NetworkFirst()
 );
 
-registerRoute(
+workbox.routing.registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/users'),
-  new NetworkFirst()
+  new workbox.strategies.NetworkFirst()
 );
 
 /* HANDLE PUSH NOTIFICATIONS */
