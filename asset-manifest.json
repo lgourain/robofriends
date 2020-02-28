@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/robofriends/static/css/main.13a72664.chunk.css",
-    "main.js": "/robofriends/static/js/main.4e283461.chunk.js",
-    "main.js.map": "/robofriends/static/js/main.4e283461.chunk.js.map",
+    "main.js": "/robofriends/static/js/main.eb9433fc.chunk.js",
+    "main.js.map": "/robofriends/static/js/main.eb9433fc.chunk.js.map",
     "runtime-main.js": "/robofriends/static/js/runtime-main.03e2f00f.js",
     "runtime-main.js.map": "/robofriends/static/js/runtime-main.03e2f00f.js.map",
     "static/css/2.eb45ad44.chunk.css": "/robofriends/static/css/2.eb45ad44.chunk.css",
-    "static/js/2.867c48b8.chunk.js": "/robofriends/static/js/2.867c48b8.chunk.js",
-    "static/js/2.867c48b8.chunk.js.map": "/robofriends/static/js/2.867c48b8.chunk.js.map",
+    "static/js/2.b97c5154.chunk.js": "/robofriends/static/js/2.b97c5154.chunk.js",
+    "static/js/2.b97c5154.chunk.js.map": "/robofriends/static/js/2.b97c5154.chunk.js.map",
     "index.html": "/robofriends/index.html",
-    "precache-manifest.8720d4243ac645b405d288d2b4913880.js": "/robofriends/precache-manifest.8720d4243ac645b405d288d2b4913880.js",
+    "precache-manifest.be6fe82b8874967a2d2ab4e9b32ff92b.js": "/robofriends/precache-manifest.be6fe82b8874967a2d2ab4e9b32ff92b.js",
     "static/css/2.eb45ad44.chunk.css.map": "/robofriends/static/css/2.eb45ad44.chunk.css.map",
     "static/css/main.13a72664.chunk.css.map": "/robofriends/static/css/main.13a72664.chunk.css.map",
-    "static/js/2.867c48b8.chunk.js.LICENSE.txt": "/robofriends/static/js/2.867c48b8.chunk.js.LICENSE.txt",
+    "static/js/2.b97c5154.chunk.js.LICENSE.txt": "/robofriends/static/js/2.b97c5154.chunk.js.LICENSE.txt",
     "static/media/App.css": "/robofriends/static/media/SEGA.12a3db8b.woff",
     "sw.js": "/robofriends/sw.js"
   },
   "entrypoints": [
     "static/js/runtime-main.03e2f00f.js",
     "static/css/2.eb45ad44.chunk.css",
-    "static/js/2.867c48b8.chunk.js",
+    "static/js/2.b97c5154.chunk.js",
     "static/css/main.13a72664.chunk.css",
-    "static/js/main.4e283461.chunk.js"
+    "static/js/main.eb9433fc.chunk.js"
   ]
 }

@@ -1,17 +1,35 @@
-importScripts("/robofriends/precache-manifest.8720d4243ac645b405d288d2b4913880.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.be6fe82b8874967a2d2ab4e9b32ff92b.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+
+import {BackgroundSyncPlugin} from 'workbox-background-sync';
+import {registerRoute} from 'workbox-routing';
+import {NetworkOnly, NetworkFirst} from 'workbox-strategies';
+
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
-/* OFFLINE FETCH */
-workbox.routing.registerRoute(
-  new RegExp('https://robohash.org/'),
-  new workbox.strategies.NetworkFirst()
+/* Background Sync */
+const bgSyncPlugin = new BackgroundSyncPlugin('app-queue', {
+  maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
+});
+
+registerRoute(
+  /\/api\/.*\/*.json/,
+  new NetworkOnly({
+    plugins: [bgSyncPlugin]
+  }),
+  'POST'
 );
 
-workbox.routing.registerRoute(
+/* OFFLINE FETCH */
+registerRoute(
+  new RegExp('https://robohash.org/'),
+  new NetworkFirst()
+);
+
+registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/users'),
-  new workbox.strategies.NetworkFirst()
+  new NetworkFirst()
 );
 
 /* HANDLE PUSH NOTIFICATIONS */
@@ -42,6 +60,8 @@ self.addEventListener('notificationclick', function(e) {
     notification.close();
   }
 });
+
+/*  */
 
 /* ASSETS CACHE */
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
