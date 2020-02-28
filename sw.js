@@ -1,11 +1,11 @@
-importScripts("/robofriends/precache-manifest.88a281010a1e81bfca5b98e8a792a3c4.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-import {BackgroundSyncPlugin, Queue} from 'workbox-background-sync';
-import {registerRoute} from 'workbox-routing';
-import {NetworkOnly, NetworkFirst} from 'workbox-strategies';
+importScripts("/robofriends/precache-manifest.9bf5bb5f91daa63c3eef5303a3afb661.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
+
+console.log('workbox', workbox);
+console.log('workbox routing', workbox.routing);
+console.log('workbox strategies', workbox.strategies);
 
 /* BACKGROUND SYNC */
 const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
