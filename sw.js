@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.a4db62808db3787e9adbf72c2ab9d7b8.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.9c000c138a1b8b9a900e002cbd8ec42a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
@@ -24,7 +24,7 @@ workbox.routing.registerRoute(
   'POST'
 );
 
-const queue = new workbox.backgroundSync.Queue('myQueueName');
+const queue = new workbox.backgroundSync.Queue('myQueueNameBis');
 
 self.addEventListener('fetch', (event) => {
   // Clone the request to ensure it's safe to read when
