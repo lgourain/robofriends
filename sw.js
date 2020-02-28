@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.1b348faea94bf41fcee5755168a156b0.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.93a98e82bf7c4268bbc16271c9ed6a80.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 import {BackgroundSyncPlugin, Queue} from 'workbox-background-sync';
 import {registerRoute} from 'workbox-routing';
