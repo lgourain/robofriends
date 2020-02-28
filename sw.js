@@ -1,14 +1,9 @@
-importScripts("/robofriends/precache-manifest.3d547268e5b1ab92df26864dd928afd5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+importScripts("/robofriends/precache-manifest.68670506e850c1b493fe9559fcde2a20.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 console.log('workbox', workbox);
-console.log('workbox background sync', workbox.backgroundSync);
-
 
 /* BACKGROUND SYNC */
-const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
+const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName', {
   maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
 });
 
@@ -20,7 +15,7 @@ workbox.routing.registerRoute(
   'POST'
 );
 
-const queue = new Queue('myQueueName');
+const queue = new workbox.backgroundSync.Queue('myQueueName');
 
 self.addEventListener('fetch', (event) => {
   // Clone the request to ensure it's safe to read when
@@ -77,4 +72,5 @@ self.addEventListener('notificationclick', function(e) {
 /* ASSETS CACHE */
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
-
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
