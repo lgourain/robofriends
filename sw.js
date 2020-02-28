@@ -1,25 +1,36 @@
-importScripts("/robofriends/precache-manifest.f768cb46ac6aa614d6c196cef7d22fba.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.41fbaca503231ede125ac9885063908a.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-import {BackgroundSyncPlugin} from 'workbox-background-sync';
+import {BackgroundSyncPlugin, Queue} from 'workbox-background-sync';
 import {registerRoute} from 'workbox-routing';
 import {NetworkOnly, NetworkFirst} from 'workbox-strategies';
-
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
-/* Background Sync */
-const bgSyncPlugin = new BackgroundSyncPlugin('app-queue', {
+/* BACKGROUND SYNC */
+const bgSyncPlugin = new BackgroundSyncPlugin('myQueueName', {
   maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
 });
 
 registerRoute(
-  /\/api\/.*\/*.json/,
+  new RegExp('https://jsonplaceholder.typicode.com/posts'),
   new NetworkOnly({
     plugins: [bgSyncPlugin]
   }),
   'POST'
 );
+
+const queue = new Queue('myQueueName');
+
+self.addEventListener('fetch', (event) => {
+  // Clone the request to ensure it's safe to read when
+  // adding to the Queue.
+  const promiseChain = fetch(event.request.clone()).catch((err) => {
+    return queue.pushRequest({request: event.request});
+  });
+
+  event.waitUntil(promiseChain);
+});
 
 /* OFFLINE FETCH */
 registerRoute(
