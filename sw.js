@@ -1,9 +1,12 @@
-importScripts("/robofriends/precache-manifest.d6c5de18f7b9793da0bf6944e551ac5d.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.a4db62808db3787e9adbf72c2ab9d7b8.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
 console.log('workbox', workbox);
+
+workbox.setConfig({
+  debug: true
+});
 
 /* ASSETS CACHE */
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
@@ -73,4 +76,5 @@ self.addEventListener('notificationclick', function(e) {
   }
 });
 
-
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
