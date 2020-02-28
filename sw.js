@@ -1,6 +1,12 @@
-importScripts("/robofriends/precache-manifest.68670506e850c1b493fe9559fcde2a20.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.d6c5de18f7b9793da0bf6944e551ac5d.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+
+workbox.core.skipWaiting();
+workbox.core.clientsClaim();
 
 console.log('workbox', workbox);
+
+/* ASSETS CACHE */
+workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 /* BACKGROUND SYNC */
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName', {
@@ -67,10 +73,4 @@ self.addEventListener('notificationclick', function(e) {
   }
 });
 
-/*  */
 
-/* ASSETS CACHE */
-workbox.precaching.precacheAndRoute(self.__precacheManifest);
-
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
