@@ -3,6 +3,7 @@ importScripts("/robofriends/precache-manifest.233cbd9457c5ce4b9b39394141c7495e.j
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
 console.log('workbox', workbox);
+console.log('test');
 
 workbox.setConfig({
   debug: true
@@ -23,7 +24,7 @@ const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueNam
 
 workbox.routing.registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/posts'),
-  new workbox.strategies.NetworkFirst({
+  new workbox.strategies.NetworkOnly({
     plugins: [bgSyncPlugin]
   }),
   'POST'
