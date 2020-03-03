@@ -23,7 +23,7 @@ const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueNam
 
 workbox.routing.registerRoute(
   new RegExp('https://jsonplaceholder.typicode.com/posts'),
-  new workbox.strategies.NetworkOnly({
+  new workbox.strategies.NetworkFirst({
     plugins: [bgSyncPlugin]
   }),
   'POST'
