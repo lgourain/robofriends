@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.de9cad54fec0365f1275ef76d648c81d.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.a61daeb37eaa878e20a40b12232611b6.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
@@ -13,7 +13,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest);
 
 /* PRECACHE FILES */
 workbox.precaching.precacheAndRoute([
-  {url: 'https://jsonplaceholder.typicode.com/posts', revision: null},
+  {url: 'https://jsonplaceholder.typicode.com/posts', revision: '38415'},
 ]);
 
 /* BACKGROUND SYNC */
