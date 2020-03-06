@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.a8439e6162c6ba984885f2d6204602c5.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.c378a1251e41e91fdffcbbaa3ca3c2bc.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
@@ -10,11 +10,6 @@ workbox.setConfig({
 
 /* ASSETS CACHE */
 workbox.precaching.precacheAndRoute(self.__precacheManifest);
-
-/* PRECACHE FILES */
-workbox.precaching.precacheAndRoute([
-  {url: 'https://jsonplaceholder.typicode.com/posts', revision: '38415'},
-]);
 
 /* BACKGROUND SYNC */
 const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin('myQueueName', {
@@ -40,6 +35,11 @@ workbox.routing.registerRoute(
 
 //   event.waitUntil(promiseChain);
 // });
+
+/* PRECACHE FILES */
+workbox.precaching.precacheAndRoute([
+  {url: 'https://jsonplaceholder.typicode.com/posts', revision: null},
+]);
 
 /* OFFLINE FETCH */
 workbox.routing.registerRoute(
