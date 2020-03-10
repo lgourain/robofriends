@@ -1,4 +1,4 @@
-importScripts("/robofriends/precache-manifest.e7aadc084648f71429d4989b21934947.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/robofriends/precache-manifest.b083a22d4d32ed2abc5ff1631e0e8d8f.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
 
